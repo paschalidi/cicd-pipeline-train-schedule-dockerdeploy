@@ -1,6 +1,5 @@
 node {
-    docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-        def customImage = docker.build("cpaschalidi/docker-test${env.BUILD_ID}")
-        customImage.push()
-    }
+    checkout scm
+    def customImage = docker.build("cpascahlidi/hello-my-ass")
+    customImage.push()
 }
